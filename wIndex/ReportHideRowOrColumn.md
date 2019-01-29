@@ -7,7 +7,7 @@ description: ReportHideRowOrColumn() utilizes cell the values "Show" and "Hide" 
 
 ## Function Summary
 
-ReportHideRowOrColumn() utilizes cell the values "Show" and "Hide" as input parameters. These parameters are set within the RowOrColumnRange argument, wherein if a cell within that range has a value of "Hide" then the function will hide that column or row depending on which type of cell range is being used. Additionally, this function is triggered on an INTERJECT Action+Event combination. Also, this function requires a [ReportCalc()](/wIndex/ReportCalc.html) function to be executed in the INTERJECT call stack before the ReportHideRowOrColumn() is called in the stack. This is because the ReportHideRowOrColumn() function requires the most up to date cell formula outputs (if formulas are being used to create the "Show"/"Hide" cell values), which does not occur if the ReportHideRowOrColumn() function is called directly after a trigger combination is called.  There are several trigger combinations that can be utilized by ReportGrouping() that are listed [here](/wIndex/ReportHideRowOrColumn.html#trigger-combination-list).
+ReportHideRowOrColumn() utilizes cell the values "Show" and "Hide" as input parameters. These parameters are set within the RowOrColumnRange argument, wherein if a cell within that range has the value "Hide", then the function will hide that column or row depending on which type of cell range is being used. Additionally, this function is triggered on an INTERJECT Action+Event combination. Also, this function requires that a [ReportCalc()](/wIndex/ReportCalc.html) function is executed in the INTERJECT<!---this is not all-capped in the last page I reviewed (ReportRange()). We need to be consistent with that one way or the other.---> call stack before the ReportHideRowOrColumn() is called in the stack. This is because the ReportHideRowOrColumn() function requires the most up-to-date cell formula outputs (if formulas are being used to create the "Show"/"Hide" cell values), which does not occur if the ReportHideRowOrColumn() function is called directly after a trigger combination is called. There are several trigger combinations that can be utilized by ReportGrouping(). You can see those trigger combinations listed [here](/wIndex/ReportHideRowOrColumn.html#trigger-combination-list).
 
 ### Function Arguments
 
@@ -23,21 +23,21 @@ ReportHideRowOrColumn() utilizes cell the values "Show" and "Hide" as input para
 ReportHideRowOrColumn("Pull","Both",C47:C48,FALSE)
 ```
 
-To view this example with more context it is sourced from [Lab Create: HidingRowsColumns](/wGetStarted/L-Create-HideRowCol.html).
+To view this example with more context, it is sourced from [Lab Create: HidingRowsColumns](/wGetStarted/L-Create-HideRowCol.html).
 
 ### Example Function Composition
 
 |Argument Name|Example Mapping|Explanation|
 |:---|:---|:---|
-|Function Name|`=ReportHideRowOrColumn()`|This is the excel function name used to call the function. It can only be used as a standalone function in a report.|
+|Function Name|`=ReportHideRowOrColumn()`|The excel function name used to call the function. It can only be used as a standalone function in a report.|
 |OnPullSaveOrBoth|"Pull"| Determines that the function will be triggered on a Pull action.|
-|OnClearRunOrBoth|"Both"| This specifies that the function will  be triggered on a Clear or Run event. The trigger combination created is a Pull-Clear or a Pull-Run. These triggers are created by combining this argument with the value for OnPullSaveOrBoth.|
+|OnClearRunOrBoth|"Both"| Specifies that the function will be triggered on a Clear or Run event. A Pull-Clear or a Pull-Run are the trigger combinations created. These triggers are created by combining this argument with the value for OnPullSaveOrBoth.|
 |RowOrColumnRange|C47:C48| Specifies the single column range from cell C47 to C48. This is often placed on a target data range of a [Data](Data-Functions-Landing.html) function.|
 |Disabled|FALSE| This is left false since the ReportHideRowOrColumn() function is active.|
 
 
 ### Trigger Combination List
-The execution of the ReportDefaults() formatting function is determined by a combination of an INTERJECT action and an INTERJECT event. An action is a pull or save whereas an event is a clear or a run.
+The execution of the ReportDefaults() formatting function is determined by a combination of an INTERJECT action and an INTERJECT event. An action is a pull or save, whereas an event is a clear or run.
 
 | Argument Name    | Function Event Trigger Options | Option Explanation                                                                            |
 |------------------|--------------------------------|-----------------------------------------------------------------------------------------------|
